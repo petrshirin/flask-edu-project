@@ -1,0 +1,5 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    {% for model_name in register_models %}
+        <a class="navbar-brand" href="/{{ model_name }}/">{{ model_name }}</a>
+    {% endfor %}
+</nav>

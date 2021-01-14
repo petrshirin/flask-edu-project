@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="post" action="/{{ model_name }}/{{ method }}/
+{% if (obj.id) %} {{ obj.id }} {% endif %}">
+        <div class="form-control" style="display: flex; flex-direction: column">
+            {{ form|safe }}
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        {% if obj.id %}
+            <button type="button" class="btn btn-alert" onclick="jsRedirect('/{{ model_name }}/delete/{{ obj.id }}')">Delete</button>
+        {% endif %}
+    </form>
+
+{% endblock %}

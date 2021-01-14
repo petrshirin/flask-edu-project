@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <table class="table" style="margin: 10px">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            {% for field in fields %}
+                <th scope="col">{{ field }}</th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for obj in objects %}
+            <tr onclick="jsRedirect('/{{ model_name }}/edit/{{ obj.id }}')">
+                {% for value in obj.get_all_values() %}
+                    <td scope="col">{{ value }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+    <div>
+        <a href="/{{ model_name }}/create/">Create new instance</a>
+    </div>
+
+{% endblock %}
+
+
